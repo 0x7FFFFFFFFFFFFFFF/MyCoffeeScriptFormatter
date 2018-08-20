@@ -1,0 +1,54 @@
+{
+    "name": "mycoffeescriptformatter",
+    "displayName": "MyCoffeeScriptFormatter",
+    "description": "An extension to format CoffeeScript files.",
+    "version": "0.0.3",
+    "publisher": "yangshuai",
+    "engines": {
+        "vscode": "^1.26.0"
+    },
+    "categories": [
+        "Other"
+    ],
+    "activationEvents": [
+        "onCommand:extension.formatIt"
+    ],
+    "main": "./extension",
+    "contributes": {
+        "configuration":{
+            "title": "My CoffeeScript Formatter Conf",
+            "properties": {
+                "myCoffeeScriptFormatter.indentation": {
+                    "type": "string",
+                    "default": "    "
+                }
+            }
+        },
+        "commands": [
+            {
+                "command": "extension.formatIt",
+                "title": "Edde: Format CoffeeScript"
+            }
+        ],
+        "keybindings": {
+            "command": "extension.formatIt",
+            "key": "shift+alt+f",
+            "mac": "shift+alt+f",
+            "when": "editorTextFocus"
+        }
+    },
+    "scripts": {
+        "postinstall": "node ./node_modules/vscode/bin/install",
+        "test": "node ./node_modules/vscode/bin/test"
+    },
+    "devDependencies": {
+        "typescript": "^2.6.1",
+        "vscode": "^1.1.6",
+        "eslint": "^4.11.0",
+        "@types/node": "^7.0.43",
+        "@types/mocha": "^2.2.42"
+    },
+    "dependencies": {
+        "coffee-fmt": "^0.12.0"
+    }
+}
